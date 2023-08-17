@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
@@ -53,8 +54,11 @@ class _CustomListTile extends StatelessWidget {
         //     builder: (context) => const CardsScreen(),
         //   ),
         // );
-        Navigator.pushNamed(
-            context, menuItem.link); //asi llamo a las rutas creadas en main
+        // Navigator.pushNamed(
+        //     context, menuItem.link); //asi llamo a las rutas creadas en main
+
+        //con go router es mas facil
+        context.push(menuItem.link);
       },
     );
   }
