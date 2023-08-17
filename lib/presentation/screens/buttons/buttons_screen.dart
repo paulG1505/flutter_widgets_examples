@@ -50,21 +50,17 @@ class _ButtonsView extends StatelessWidget {
                   onPressed: () {},
                   label: const Text('Filled Icon'),
                   icon: const Icon(Icons.access_time_filled_outlined)),
-
               OutlinedButton(onPressed: () {}, child: const Text('Outlined ')),
               OutlinedButton.icon(
                   onPressed: () {},
                   label: const Text('Outlined Icon'),
                   icon: const Icon(Icons.access_time_filled)),
-
               TextButton(onPressed: () {}, child: const Text('Text')),
               TextButton.icon(
                   onPressed: () {},
                   label: const Text('Text Icon'),
                   icon: const Icon(Icons.access_time)),
-
-              //TODO CUSTOM BUTTON
-
+              const _CustomButton(),
               IconButton(onPressed: () {}, icon: const Icon(Icons.access_time)),
               IconButton(
                   onPressed: () {},
@@ -76,5 +72,28 @@ class _ButtonsView extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+class _CustomButton extends StatelessWidget {
+  const _CustomButton();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+          color: colors.primary,
+          child: InkWell(
+            onTap: () {},
+            child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Text(
+                  'Boton personalizado',
+                  style: TextStyle(color: Colors.white),
+                )),
+          )),
+    );
   }
 }
