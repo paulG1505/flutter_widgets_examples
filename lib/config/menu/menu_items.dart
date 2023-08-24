@@ -34,9 +34,14 @@ const appMenuItems = <MenuItem>[
       subtitle: 'Ejemplos de snackbar y diálogos',
       link: '/snackbar',
       icon: Icons.info_outline_rounded),
-      MenuItem(
+  MenuItem(
       title: 'Animated Container',
       subtitle: 'Ejemplo de una animacion ',
-      link: '/animatef',
+      link: '/animated',
       icon: Icons.play_arrow_rounded),
+  MenuItem(
+      title: 'Controles como radius y check',
+      subtitle: 'UI Controlls',
+      link: '/ui-controls',
+      icon: Icons.car_rental_outlined),
 ];
