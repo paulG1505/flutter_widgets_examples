@@ -8,7 +8,7 @@ class ThemeChangerScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final isDarkMode = ref.watch(isDarkModeProvider);
+    final isDarkMode = ref.watch(themeNotifierProvider).isDarkMode;
 
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +16,8 @@ class ThemeChangerScreen extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
-                ref.read(isDarkModeProvider.notifier).update((state) => !state);
+                //ref.read(isDarkModeProvider.notifier).update((state) => !state);
+                ref.read(themeNotifierProvider.notifier).toggleDarkMode();
               },
               icon: Icon(isDarkMode
                   ? Icons.dark_mode_outlined
@@ -34,7 +35,7 @@ class _ViewRadioColor extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final List<Color> colors = ref.watch(colorListProvider);
-    final int selectedColor = ref.watch(selectedColorProvider);
+    final int selectedColor = ref.watch(themeNotifierProvider).selectedColor;
 
     return ListView.builder(
       itemCount: colors.length,
@@ -48,7 +49,8 @@ class _ViewRadioColor extends ConsumerWidget {
             groupValue: selectedColor, //valor seleccionado
             onChanged: (value) {
               //usamos esta linea para buscar el provider y cambiarlo por el valor de index
-              ref.read(selectedColorProvider.notifier).state = index;
+              //ref.read(selectedColorProvider.notifier).state = index;
+              ref.watch(themeNotifierProvider.notifier).changeColorIndex(index);
             });
       },
     );
